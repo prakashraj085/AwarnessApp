@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Query Form Page</title>
+<style>
+    body, html {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        overflow: hidden;
+    }
+    .container {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+    }
+    .upper-section {
+        height: 30%;
+        background-color: rgb(65, 183, 204); /* Light grey background */
+    }
+    .lower-section {
+        flex-grow: 1;
+        background-color: white; /* Lighter grey background */
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
+    .options-container {
+        width: 25%;
+        padding: 20px;
+        border: 1px solid #ccc;
+        border-radius: 10px;
+        margin-left: -850px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
+    }
+    .option {
+        margin-bottom: 10px;
+    }
+    /* Style the checkbox */
+    input[type="checkbox"] {
+        -webkit-appearance: none;
+        -moz-appearance: none;
+        appearance: none;
+        width: 20px;
+        height: 20px;
+        border: 2px solid aqua;
+        border-radius: 5px;
+        outline: none;
+        margin-right: 10px;
+        vertical-align: middle;
+        position: relative;
+        background-color: aqua;
+       
+    }
+    /* Style the checked state of the checkbox */
+    input[type="checkbox"]:checked {
+        background-color: white;
+        
+    }
+
+    h1{
+      margin-left: -1000px;
+    }
+
+    p{
+        margin-left: 90%;
+      }
+
+
+    @media (max-width: 767px) {
+
+      p{
+        margin-left: 70%;
+      }
+
+     h1{
+      margin-left: -130px;
+     }
+     .options-container {
+      width: 80%;
+        margin-left: -10px;
+    }
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <div class="upper-section">
+        <!-- Upper section content -->
+    </div><p>Good Morning</p>
+    <div class="lower-section">
+     
+        <h1>Thudiyalur Area</h1>
+        <div class="options-container">
+            <h2>Important Announcements</h2>
+            <div class="option">
+                <input type="checkbox" id="option1" name="option1">
+                <label for="option1">Polio Drops at Goverment School</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="option2" name="option2">
+                <label for="option2">Drinking Water Supply at 2:30 pm</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="option3" name="option3">
+                <label for="option3">Ration Shop shut renovation work</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="option4" name="option4">
+                <label for="option4">Electricty Shutdown from tommorow</label>
+            </div>
+            <div class="option">
+                <input type="checkbox" id="option5" name="option5">
+                <label for="option5">Roadwork  being done near ITI</label>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
