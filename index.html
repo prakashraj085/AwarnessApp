@@ -12,7 +12,7 @@
             margin: 0;
             background-color: white;
             padding: 0;
-            overflow: hidden;
+ overflow-x: hidden;
         }
 
         .container {
@@ -40,7 +40,7 @@
             padding-left: 100px;
             padding-right: 100px;
             font-size: 16px;
-            margin-top: 80px;
+            margin-top: 20px;
             margin-right: 10px;
         }
 
@@ -69,34 +69,14 @@
             margin-bottom: 20px;
         }
 
-        
 
-        .circle {
-            position: absolute;
-            width: 200px; 
-            height: 200px; 
-            background-color: rgba(0, 127, 127, 0.5); 
-            border-radius: 50%;
-            top: -100px; 
-            left: 0px;
-        }
-
-        .circle2 {
-            position: absolute;
-            width: 200px; 
-            height: 200px;
-            background-color: rgba(0, 127, 127, 0.5); 
-            border-radius: 50%;
-            top: 0px; 
-            left: -100px; 
-        }
 
 
         @media (max-width: 767px) {
             .container {
                 margin-right: 50px;
                 position: absolute;
-                top: -100px;
+                top: -190px;
             }
 
             .rect-button {
@@ -113,17 +93,7 @@
 
             }
 
-            .circle {
-            top: -20px; /* Adjust vertical position */
-            left: -20px; /* Adjust horizontal position */
-        }
-
-        .circle2 {
-            top: 40px; /* Adjust vertical position */
-            left: -100px; /* Adjust horizontal position */
-        }
-
-
+    
 
         }
     </style>
@@ -138,11 +108,7 @@
             and Query System
         </div>
         <a href="signup.html"><button id="getStartBtn" class="rect-button" >Get Started</button></a>
-    </div>
-    <div class="container">
-        <div class="circle"></div>
-        <div class="circle2"></div>
-    </div>
+        </div>
 
 
 
