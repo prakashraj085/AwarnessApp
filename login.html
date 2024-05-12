@@ -29,8 +29,9 @@
 
         h1 {
             color: black;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
             font-style: italic;
+            font-size: medium;
         }
 
         img {
@@ -84,6 +85,33 @@
             color: black;
         }
 
+        /* Circle styles */
+        .circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background-color: rgba(0, 255, 255, 0.5);
+            /* Aqua blue with transparency */
+        }
+
+
+        .circle1 {
+            top: -8%;
+            /* Adjust the percentage value to move it up or down */
+            left: 0%;
+            /* Adjust the percentage value to move it left or right */
+        }
+
+        .circle2 {
+            top: 3%;
+            /* Adjust the percentage value to move it up or down */
+            left: -4%;
+            /* Adjust the percentage value to move it left or right */
+        }
+
 
         @media (max-width: 767px) {
             .container {
@@ -108,25 +136,42 @@
                 height: 10%;
             }
 
-          
+            .circle1 {
+                top: -6%;
+                /* Adjust the percentage value to move it up or down */
+                left: -2%;
+                /* Adjust the percentage value to move it left or right */
+            }
+
+            .circle2 {
+                top: 2%;
+                /* Adjust the percentage value to move it up or down */
+                left: -15%;
+                /* Adjust the percentage value to move it left or right */
+            }
+
+
         }
     </style>
 </head>
 
 <body>
     <div class="container">
+        <div class="circle circle1"></div>
+        <div class="circle circle2"></div>
         <h1> Welcome Back</h1>
         <img src="./images/firstpage.svg" alt="Character Image">
         <input type="email" placeholder="Email">
         <input type="password" placeholder="Password">
         <a href="#" style="font-style: italic;">Forgot Password?</a>
-       <a href="dashboard.html"> <button id="loginBtn" class="rect-button" style="font-style: italic;">Login</button></a>
+        <a href="dashboard.html"> <button id="loginBtn" class="rect-button"
+                style="font-style: italic;">Login</button></a>
         <p style="font-style: italic;">Don't have an account? <a href="signup.html">signup</a></p>
     </div>
 
 
 
-    
+
 </body>
 
 </html>
