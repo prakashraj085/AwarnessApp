@@ -99,23 +99,23 @@
         }
 
         input[type="submit"] {
-            margin-left: 110%;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: medium;
-            font-style: italic;
-            margin-top: 5px;
-            cursor: pointer;
-            background-color: aqua;
-            color: white;
-            border: none;
-            transition: background-color 0.3s ease;
-        }
+    margin-left: 110%;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: medium;
+    font-style: italic;
+    margin-top: 5px;
+    cursor: pointer;
+    background-color: aqua;
+    color: white; 
+    border: none;
+    transition: background-color 0.3s ease; 
+}
 
-        input[type="submit"]:hover {
-            background-color: white;
-            color: aqua;
-        }
+input[type="submit"]:hover {
+    background-color: white; 
+    color: aqua; 
+}
 
         h1 {
             margin-left: 30px;
@@ -238,18 +238,7 @@
                 margin-left: 10px;
             }
 
-            form[action="dashboard.html"] { /* Adjusted */
-                margin-left: 0;
-            }
-
-            form[action="dashboard.html"] input[type="submit"] { /* Adjusted */
-                margin-left: 110%;
-            }
-
-            form[action="dashboard.html"] input[type="submit"]:hover { /* Adjusted */
-                color: white;
-                background-color: aqua;
-            }
+            
 
             .circle1 {
                 top: -4%;
@@ -259,6 +248,18 @@
             .circle2 {
                 top: 3%;
                 left: -12%;
+            }
+            form[action="dashboard.html"] { /* Adjusted */
+                margin-left: 0;
+            }
+
+            form[action="dashboard.html"] input[type="submit"] { /* Adjusted */
+                margin-left: 0;
+            }
+
+            form[action="dashboard.html"] input[type="submit"]:hover { /* Adjusted */
+                color: white;
+                background-color: aqua;
             }
 
         }
@@ -283,7 +284,7 @@
         <div class="lower-section">
             <div class="query-form">
                 <h1>Query Form</h1>
-                <form action="dashboard.html" method="post">
+                <form action="dashboard.html" method="get">
                     <label for="department">Choose Department:</label><br>
                     <select id="department" name="department">
                         <option value="panchayat_board" selected>Panchayat Board</option>
@@ -302,11 +303,11 @@
         </div>
     </div>
 
-    <!-- Menu Content -->
-    <div class="menu">
+      <!-- Menu Content -->
+      <div class="menu">
         <ul>
             <a style="text-decoration: none;" href="query.html">
-                <li><i class="fa-solid fa-message"></i>&nbsp;&nbsp;Query</li>
+             <li><i class="fa-solid fa-message"></i>&nbsp;&nbsp;Query</li>
             </a>
             <a href="dashboard.html" style="text-decoration: none;">
                 <li><i class="fa-solid fa-house"></i>&nbsp;&nbsp;Home</li>
@@ -336,4 +337,3 @@
 </body>
 
 </html>
-
