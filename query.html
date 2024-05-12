@@ -1,159 +1,212 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Query Form Page</title>
-<style>
-    body, html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        overflow: hidden;
-    }
-    .container {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
-    .upper-section {
-        height: 30%;
-        background-color: rgb(65, 183, 204); /* Light grey background */
-    }
-    .lower-section {
-        flex-grow: 1;
-        background-color: white; /* Lighter grey background */
-        display: flex;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Form Page</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
 
-    .query-form label {
-        display: block;
-        margin-left: 100px;
-        font-size: x-large;
-          font-style: italic;
-    }
-    .query-form textarea {
-        width: 100%;
-        resize: vertical;
-        margin-left: 100px;
-    }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
 
-    #query{
-          margin-left: 100px;
-          font-size: x-large;
-          font-style: italic;
-          width: 100%;
-          border-radius: 5px;
-    }
-
-    #department{
-        margin-left: 100px;
-        margin-bottom: 10px;
-        font-size: large;
-          font-style: italic;
-          width: 100%;
-          padding:10px 20px;
-          border-radius: 5px;
-    }
-
-    input{
-        margin-left: 110%;
-        padding: 10px 20px;
-        border-radius: 20px;
-        font-size: medium;
-        font-style: italic;
-        margin-top: 5px;
-    }
-    h1{
-        margin-left: 30px;
-    }
-
-    @media (max-width: 767px) {
         .upper-section {
-        height: 15%;
-    }
+            height: 30%;
+            background-color: rgb(65, 183, 204);
+            /* Light grey background */
+        }
 
-    .lower-section {
-        margin-top: 50px;
-    }
+        .lower-section {
+            flex-grow: 1;
+            background-color: white;
+            /* Lighter grey background */
+            display: flex;
+        }
+
+        .query-form label {
+            display: block;
+            margin-left: 100px;
+            font-size: x-large;
+            font-style: italic;
+        }
+
+        .query-form textarea {
+            width: 100%;
+            resize: vertical;
+            margin-left: 100px;
+        }
+
+        #query {
+            margin-left: 100px;
+            font-size: x-large;
+            font-style: italic;
+            width: 100%;
+            border-radius: 5px;
+        }
+
+        #department {
+            margin-left: 100px;
+            margin-bottom: 10px;
+            font-size: large;
+            font-style: italic;
+            width: 100%;
+            padding: 10px 20px;
+            border-radius: 5px;
+        }
+
+        input {
+            margin-left: 110%;
+            padding: 10px 20px;
+            border-radius: 20px;
+            font-size: medium;
+            font-style: italic;
+            margin-top: 5px;
+        }
+
+        h1 {
+            margin-left: 30px;
+        }
+
+        /* Circle styles */
+        .circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background-color: rgba(0, 255, 255, 0.5);
+            /* Aqua blue with transparency */
+        }
 
 
-    .query-form label {
-        display: block;
-        margin-left: 10px;
-        font-size: x-large;
-          font-style: italic;
-    }
-    .query-form textarea {
-        width: 50%;
-        resize: vertical;
-        margin-left: 100px;
-    }
+        .circle1 {
+            top: -5%;
+            /* Adjust the percentage value to move it up or down */
+            left: -2%;
+            /* Adjust the percentage value to move it left or right */
+        }
 
-    #query{
-          margin-left: 10px;
-          font-size: x-large;
-          font-style: italic;
-          width: 130%;
-          border-radius: 5px;
-    }
+        .circle2 {
+            top: 7%;
+            /* Adjust the percentage value to move it up or down */
+            left: -5%;
+            /* Adjust the percentage value to move it left or right */
+        }
 
-    #department{
-        margin-left: 10px;
-        margin-bottom: 10px;
-        font-size: large;
-          font-style: italic;
-          width: 130%;
-          padding:10px 20px;
-          border-radius: 5px;
-    }
+        @media (max-width: 767px) {
+            .upper-section {
+                height: 20%;
+            }
 
-    input{
-        margin-left: 100%;
-        padding: 10px 20px;
-        border-radius: 20px;
-        font-size: medium;
-        font-style: italic;
-        margin-top: 15px;
-        color: white;
-        background-color: aqua;
-        border-color: aqua;
-    }
-    h1{
-        margin-left: 10px;
-    }
+            .lower-section {
+                margin-top: 50px;
+            }
 
 
-    }
+            .query-form label {
+                display: block;
+                margin-left: 10px;
+                font-size: x-large;
+                font-style: italic;
+            }
 
-</style>
+            .query-form textarea {
+                width: 50%;
+                resize: vertical;
+                margin-left: 100px;
+            }
+
+            #query {
+                margin-left: 10px;
+                font-size: x-large;
+                font-style: italic;
+                width: 130%;
+                border-radius: 5px;
+            }
+
+            #department {
+                margin-left: 10px;
+                margin-bottom: 10px;
+                font-size: large;
+                font-style: italic;
+                width: 130%;
+                padding: 10px 20px;
+                border-radius: 5px;
+            }
+
+            input {
+                margin-left: 100%;
+                padding: 10px 20px;
+                border-radius: 20px;
+                font-size: medium;
+                font-style: italic;
+                margin-top: 15px;
+                color: white;
+                background-color: aqua;
+                border-color: aqua;
+            }
+
+            h1 {
+                margin-left: 10px;
+            }
+
+            .circle1 {
+                top: -4%;
+                /* Adjust the percentage value to move it up or down */
+                left: -6%;
+                /* Adjust the percentage value to move it left or right */
+            }
+
+            .circle2 {
+                top: 3%;
+                /* Adjust the percentage value to move it up or down */
+                left: -12%;
+                /* Adjust the percentage value to move it left or right */
+            }
+
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="container">
-    <div class="upper-section">
-        <!-- Upper section content -->
-    </div>
-    <div class="lower-section">
-        <div class="query-form">
-            <h1>Query Form</h1>
-            <form action="#" method="post">
-                <label for="department">Choose Department:</label><br>
-                <select id="department" name="department">
-                    <option value="panchayat_board" selected>Panchayat Board</option>
-                    <option value="municipal_corporation">Municipal Corporation</option>
-                    <option value="city_planning_department">City Planning Department</option>
-                    <option value="public_works_department">Public Works Department</option>
-                    <option value="health_department">Health Department</option>
-                </select><br>
-                <label for="query">Query:</label><br>
-                <textarea id="query" name="query" rows="7" required></textarea><br>
-                <input type="submit" value="Post">
-            </form>
+    <div class="container">
+        <div class="upper-section">
+            <div class="circle circle1"></div>
+            <div class="circle circle2"></div>
+        </div>
+        <div class="lower-section">
+            <div class="query-form">
+                <h1>Query Form</h1>
+                <form action="#" method="post">
+                    <label for="department">Choose Department:</label><br>
+                    <select id="department" name="department">
+                        <option value="panchayat_board" selected>Panchayat Board</option>
+                        <option value="municipal_corporation">Municipal Corporation</option>
+                        <option value="city_planning_department">City Planning Department</option>
+                        <option value="public_works_department">Public Works Department</option>
+                        <option value="health_department">Health Department</option>
+                    </select><br>
+                    <label for="query">Query:</label><br>
+                    <textarea id="query" name="query" rows="7" required></textarea><br>
+                    <input type="submit" value="Post">
+                </form>
+            </div>
         </div>
     </div>
-</div>
 
 </body>
+
 </html>
 
