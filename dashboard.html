@@ -4,7 +4,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Query Form Page</title>
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/2460ed1eda.js" crossorigin="anonymous"></script>
     <style>
         body,
         html {
@@ -12,6 +14,7 @@
             padding: 0;
             height: 100%;
             overflow: hidden;
+            font-style: italic;
         }
 
         .container {
@@ -23,18 +26,13 @@
         .upper-section {
             height: 30%;
             background-color: rgb(65, 183, 204);
-            /* Light grey background */
             position: relative;
-            /* Added */
         }
 
         .menu-icon {
             position: absolute;
-            /* Added */
             top: 10px;
-            /* Added */
             right: 10px;
-            /* Added */
             display: inline-block;
             cursor: pointer;
         }
@@ -48,19 +46,14 @@
 
         .close-icon {
             position: absolute;
-            /* Added */
             top: 10px;
-            /* Adjust as needed */
             left: 10px;
-            /* Adjust as needed */
             display: none;
-            /* Initially hidden */
             cursor: pointer;
         }
 
         .close-icon.active {
             display: block;
-            /* Show when menu is active */
         }
 
         .close-icon:before {
@@ -71,7 +64,6 @@
         .lower-section {
             flex-grow: 1;
             background-color: white;
-            /* Lighter grey background */
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -85,14 +77,12 @@
             border-radius: 10px;
             margin-left: -850px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            /* Shadow effect */
         }
 
         .option {
             margin-bottom: 10px;
         }
 
-        /* Style the checkbox */
         input[type="checkbox"] {
             -webkit-appearance: none;
             -moz-appearance: none;
@@ -108,7 +98,6 @@
             background-color: aqua;
         }
 
-        /* Style the checked state of the checkbox */
         input[type="checkbox"]:checked {
             background-color: white;
         }
@@ -119,6 +108,8 @@
 
         p {
             margin-left: 90%;
+            font-size: larger;
+            font-style: italic;
         }
 
         .menu {
@@ -143,16 +134,12 @@
             border-bottom: 1px solid #ccc;
             cursor: pointer;
             font-size: 18px;
-            /* Adjust as needed */
             color: #333;
-            /* Adjust as needed */
             transition: background-color 0.3s ease;
-            /* Smooth background color transition */
         }
 
         .menu ul li:hover {
             background-color: #f0f0f0;
-            /* Change background color on hover */
         }
 
         .menu ul li:last-child {
@@ -163,7 +150,6 @@
             transform: translateX(0);
         }
 
-        /* Circle styles */
         .circle {
             position: absolute;
             top: 0;
@@ -172,23 +158,32 @@
             height: 130px;
             border-radius: 50%;
             background-color: rgba(0, 255, 255, 0.5);
-            /* Aqua blue with transparency */
         }
 
 
         .circle1 {
             top: -14%;
-            /* Adjust the percentage value to move it up or down */
             left: -2%;
-            /* Adjust the percentage value to move it left or right */
         }
 
         .circle2 {
             top: 20%;
-            /* Adjust the percentage value to move it up or down */
             left: -4%;
-            /* Adjust the percentage value to move it left or right */
         }
+
+        .profile-img {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.profile-img img {
+    width: 100px; 
+    height: 100px;
+    border-radius: 50%;
+}
+
 
         @media (max-width: 767px) {
             p {
@@ -207,23 +202,17 @@
             .upper-section {
                 height: 20%;
                 background-color: rgb(65, 183, 204);
-                /* Light grey background */
                 position: relative;
-                /* Added */
             }
 
             .circle1 {
                 top: -20%;
-                /* Adjust the percentage value to move it up or down */
                 left: -6%;
-                /* Adjust the percentage value to move it left or right */
             }
 
             .circle2 {
                 top: 14%;
-                /* Adjust the percentage value to move it up or down */
                 left: -12%;
-                /* Adjust the percentage value to move it left or right */
             }
         }
     </style>
@@ -236,6 +225,9 @@
         <div class="upper-section">
             <div class="circle circle1"></div>
             <div class="circle circle2"></div>
+            <div class="profile-img">
+                <img src="./images/profile.png" alt="Profile Image">
+            </div>
             <div class="menu-icon" onclick="toggleMenu()">
                 <div class="bar"></div>
                 <div class="bar"></div>
@@ -278,19 +270,19 @@
     <div class="menu">
         <ul>
             <a style="text-decoration: none;" href="query.html">
-                <li>Query</li>
-            </a>
-            <a href="loadingpage.html" style="text-decoration: none;">
-                <li>Home</li>
+             <li><i class="fa-solid fa-message"></i>&nbsp;&nbsp;Query</li>
             </a>
             <a href="#" style="text-decoration: none;">
-                <li>Settings</li>
+                <li><i class="fa-solid fa-house"></i>&nbsp;&nbsp;Home</li>
             </a>
             <a href="#" style="text-decoration: none;">
-                <li>Notification</li>
+                <li><i class="fa-solid fa-gear"></i>&nbsp;&nbsp;Settings</li>
+            </a>
+            <a href="#" style="text-decoration: none;">
+                <li><i class="fa-solid fa-bell"></i>&nbsp;&nbsp;Notification</li>
             </a>
             <a style="text-decoration: none;" href="login.html">
-                <li>Logout</li>
+                <li><i class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;Logout</li>
             </a>
         </ul>
     </div>
@@ -308,4 +300,3 @@
 </body>
 
 </html>
-
