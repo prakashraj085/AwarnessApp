@@ -1,223 +1,311 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Query Form Page</title>
-<style>
-    body, html {
-        margin: 0;
-        padding: 0;
-        height: 100%;
-        overflow: hidden;
-    }
-    .container {
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-    }
-    .upper-section {
-        height: 30%;
-        background-color: rgb(65, 183, 204); /* Light grey background */
-        position: relative; /* Added */
-    }
-    .menu-icon {
-        position: absolute; /* Added */
-        top: 10px; /* Added */
-        right: 10px; /* Added */
-        display: inline-block;
-        cursor: pointer;
-    }
-    .bar {
-        width: 30px;
-        height: 3px;
-        background-color: black;
-        margin: 6px 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Query Form Page</title>
+    <style>
+        body,
+        html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            overflow: hidden;
+        }
 
-    .close-icon {
-        position: absolute; /* Added */
-        top: 10px; /* Adjust as needed */
-        left: 10px; /* Adjust as needed */
-        display: none; /* Initially hidden */
-        cursor: pointer;
-    }
-    .close-icon.active {
-        display: block; /* Show when menu is active */
-    }
-    .close-icon:before {
-        content: '✕';
-        font-size: 20px;
-    }
-    .lower-section {
-        flex-grow: 1;
-        background-color: white; /* Lighter grey background */
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-    }
-    .options-container {
-        width: 25%;
-        padding: 20px;
-        border: 1px solid #ccc;
-        border-radius: 10px;
-        margin-left: -850px;
-        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Shadow effect */
-    }
-    .option {
-        margin-bottom: 10px;
-    }
-    /* Style the checkbox */
-    input[type="checkbox"] {
-        -webkit-appearance: none;
-        -moz-appearance: none;
-        appearance: none;
-        width: 20px;
-        height: 20px;
-        border: 2px solid aqua;
-        border-radius: 5px;
-        outline: none;
-        margin-right: 10px;
-        vertical-align: middle;
-        position: relative;
-        background-color: aqua;
-    }
-    /* Style the checked state of the checkbox */
-    input[type="checkbox"]:checked {
-        background-color: white;
-    }
+        .container {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+        }
 
-    h1{
-      margin-left: -1000px;
-    }
+        .upper-section {
+            height: 30%;
+            background-color: rgb(65, 183, 204);
+            /* Light grey background */
+            position: relative;
+            /* Added */
+        }
 
-    p{
-        margin-left: 90%;
-    }
+        .menu-icon {
+            position: absolute;
+            /* Added */
+            top: 10px;
+            /* Added */
+            right: 10px;
+            /* Added */
+            display: inline-block;
+            cursor: pointer;
+        }
 
-    .menu {
-        position: absolute;
-        top: 0;
-        right: 0;
-        background-color: rgba(255, 255, 255, 0.9);
-        width: 200px;
-        height: 100%;
-        z-index: 1;
-        transform: translateX(200px);
-        transition: transform 0.3s ease-in-out;
-    }
+        .bar {
+            width: 30px;
+            height: 3px;
+            background-color: black;
+            margin: 6px 0;
+        }
 
-    .menu ul {
-        list-style-type: none;
-        padding: 0;
-    }
+        .close-icon {
+            position: absolute;
+            /* Added */
+            top: 10px;
+            /* Adjust as needed */
+            left: 10px;
+            /* Adjust as needed */
+            display: none;
+            /* Initially hidden */
+            cursor: pointer;
+        }
 
-    .menu ul li {
-        padding: 10px;
-        border-bottom: 1px solid #ccc;
-        cursor: pointer;
-        font-size: 18px; /* Adjust as needed */
-        color: #333; /* Adjust as needed */
-        transition: background-color 0.3s ease; /* Smooth background color transition */
-    }
+        .close-icon.active {
+            display: block;
+            /* Show when menu is active */
+        }
 
-    .menu ul li:hover {
-        background-color: #f0f0f0; /* Change background color on hover */
-    }
+        .close-icon:before {
+            content: '✕';
+            font-size: 20px;
+        }
 
-    .menu ul li:last-child {
-        border-bottom: none;
-    }
+        .lower-section {
+            flex-grow: 1;
+            background-color: white;
+            /* Lighter grey background */
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
 
-    .menu.active {
-        transform: translateX(0);
-    }
+        .options-container {
+            width: 25%;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 10px;
+            margin-left: -850px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            /* Shadow effect */
+        }
 
-    @media (max-width: 767px) {
-      p{
-        margin-left: 70%;
-      }
+        .option {
+            margin-bottom: 10px;
+        }
 
-      h1{
-        margin-left: -100px;
-      }
-      .options-container {
-        width: 85%;
-        margin-left: -10px;
-      }
-      .upper-section {
-        height: 15%;
-        background-color: rgb(65, 183, 204); /* Light grey background */
-        position: relative; /* Added */
-    }
-    }
-</style>
+        /* Style the checkbox */
+        input[type="checkbox"] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 20px;
+            height: 20px;
+            border: 2px solid aqua;
+            border-radius: 5px;
+            outline: none;
+            margin-right: 10px;
+            vertical-align: middle;
+            position: relative;
+            background-color: aqua;
+        }
+
+        /* Style the checked state of the checkbox */
+        input[type="checkbox"]:checked {
+            background-color: white;
+        }
+
+        h1 {
+            margin-left: -1000px;
+        }
+
+        p {
+            margin-left: 90%;
+        }
+
+        .menu {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 200px;
+            height: 100%;
+            z-index: 1;
+            transform: translateX(200px);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+            font-size: 18px;
+            /* Adjust as needed */
+            color: #333;
+            /* Adjust as needed */
+            transition: background-color 0.3s ease;
+            /* Smooth background color transition */
+        }
+
+        .menu ul li:hover {
+            background-color: #f0f0f0;
+            /* Change background color on hover */
+        }
+
+        .menu ul li:last-child {
+            border-bottom: none;
+        }
+
+        .menu.active {
+            transform: translateX(0);
+        }
+
+        /* Circle styles */
+        .circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background-color: rgba(0, 255, 255, 0.5);
+            /* Aqua blue with transparency */
+        }
+
+
+        .circle1 {
+            top: -14%;
+            /* Adjust the percentage value to move it up or down */
+            left: -2%;
+            /* Adjust the percentage value to move it left or right */
+        }
+
+        .circle2 {
+            top: 20%;
+            /* Adjust the percentage value to move it up or down */
+            left: -4%;
+            /* Adjust the percentage value to move it left or right */
+        }
+
+        @media (max-width: 767px) {
+            p {
+                margin-left: 70%;
+            }
+
+            h1 {
+                margin-left: -100px;
+            }
+
+            .options-container {
+                width: 85%;
+                margin-left: -10px;
+            }
+
+            .upper-section {
+                height: 20%;
+                background-color: rgb(65, 183, 204);
+                /* Light grey background */
+                position: relative;
+                /* Added */
+            }
+
+            .circle1 {
+                top: -20%;
+                /* Adjust the percentage value to move it up or down */
+                left: -6%;
+                /* Adjust the percentage value to move it left or right */
+            }
+
+            .circle2 {
+                top: 14%;
+                /* Adjust the percentage value to move it up or down */
+                left: -12%;
+                /* Adjust the percentage value to move it left or right */
+            }
+        }
+    </style>
 </head>
+
 <body>
 
-<div class="container">
-    <div class="upper-section">
-        <!-- Hamburger menu icon -->
-        <div class="menu-icon" onclick="toggleMenu()">
-            <div class="bar"></div>
-            <div class="bar"></div>
-            <div class="bar"></div>
-        </div>
-         <!-- Close icon -->
-         <div class="close-icon" onclick="toggleMenu()"></div>
-    </div>
-    <p>Good Morning</p>
-    <div class="lower-section">
-        <h1>Thudiyalur Area</h1>
-        <!-- Options Container -->
-        <div class="options-container">
-            <h2>Important Announcements</h2>
-            <div class="option">
-                <input type="checkbox" id="option1" name="option1">
-                <label for="option1">Polio Drops at Government School</label>
-            </div>
-            <div class="option">
-                <input type="checkbox" id="option2" name="option2">
-                <label for="option2">Drinking Water Supply at 2:30 pm</label>
-            </div>
-            <div class="option">
-                <input type="checkbox" id="option3" name="option3">
-                <label for="option3">Ration Shop shut renovation work</label>
-            </div>
-            <div class="option">
-                <input type="checkbox" id="option4" name="option4">
-                <label for="option4">Electricity Shutdown from tomorrow</label>
-            </div>
-            <div class="option">
-                <input type="checkbox" id="option5" name="option5">
-                <label for="option5">Roadwork being done near ITI</label>
-            </div>
-        </div>
-    </div>
-</div>
+    <div class="container">
 
-<!-- Menu Content -->
-<div class="menu">
-    <ul>
-        <a style="text-decoration: none;" href="query.html"><li>Query</li></a>
-        <a href="loadingpage.html" style="text-decoration: none;"><li>Home</li></a>
-        <a href="#" style="text-decoration: none;"><li>Settings</li></a>
-        <a href="#" style="text-decoration: none;"><li>Notification</li></a>
-        <a style="text-decoration: none;" href="login.html"><li>Logout</li></a>
-    </ul>
-</div>
+        <div class="upper-section">
+            <div class="circle circle1"></div>
+            <div class="circle circle2"></div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <!-- Close icon -->
+            <div class="close-icon" onclick="toggleMenu()"></div>
+        </div>
+        <p>Good Morning</p>
+        <div class="lower-section">
+            <h1>Thudiyalur Area</h1>
+            <!-- Options Container -->
+            <div class="options-container">
+                <h2>Important Announcements</h2>
+                <div class="option">
+                    <input type="checkbox" id="option1" name="option1">
+                    <label for="option1">Polio Drops at Government School</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="option2" name="option2">
+                    <label for="option2">Drinking Water Supply at 2:30 pm</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="option3" name="option3">
+                    <label for="option3">Ration Shop shut renovation work</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="option4" name="option4">
+                    <label for="option4">Electricity Shutdown from tomorrow</label>
+                </div>
+                <div class="option">
+                    <input type="checkbox" id="option5" name="option5">
+                    <label for="option5">Roadwork being done near ITI</label>
+                </div>
+            </div>
+        </div>
+    </div>
 
-<script>
-    function toggleMenu() {
-        var menu = document.querySelector('.menu');
-        var closeIcon = document.querySelector('.close-icon');
-        menu.classList.toggle('active');
-        closeIcon.classList.toggle('active');
-    }
-</script>
+    <!-- Menu Content -->
+    <div class="menu">
+        <ul>
+            <a style="text-decoration: none;" href="query.html">
+                <li>Query</li>
+            </a>
+            <a href="loadingpage.html" style="text-decoration: none;">
+                <li>Home</li>
+            </a>
+            <a href="#" style="text-decoration: none;">
+                <li>Settings</li>
+            </a>
+            <a href="#" style="text-decoration: none;">
+                <li>Notification</li>
+            </a>
+            <a style="text-decoration: none;" href="login.html">
+                <li>Logout</li>
+            </a>
+        </ul>
+    </div>
+
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('.menu');
+            var closeIcon = document.querySelector('.close-icon');
+            menu.classList.toggle('active');
+            closeIcon.classList.toggle('active');
+        }
+    </script>
 
 
 </body>
+
 </html>
 
