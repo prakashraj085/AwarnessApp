@@ -30,8 +30,9 @@
 
         h1 {
             color: black;
-            margin-bottom: 50px;
+            margin-bottom: 20px;
             font-style: italic;
+            font-size: medium;
         }
 
         input {
@@ -48,7 +49,7 @@
         }
 
         a {
-            color:  rgb(22, 170, 197);
+            color: rgb(22, 170, 197);
             text-decoration: none;
             font-size: 14px;
             margin-bottom: 20px;
@@ -78,7 +79,7 @@
             font-style: italic;
         }
 
-        #signUpBtn:hover{
+        #signUpBtn:hover {
             cursor: pointer;
             background-color: white;
             color: black;
@@ -89,6 +90,32 @@
             margin-top: 0px;
         }
 
+        /* Circle styles */
+        .circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background-color: rgba(0, 255, 255, 0.5);
+            /* Aqua blue with transparency */
+        }
+
+
+        .circle1 {
+            top: -8%;
+            /* Adjust the percentage value to move it up or down */
+            left: 0%;
+            /* Adjust the percentage value to move it left or right */
+        }
+
+        .circle2 {
+            top: 3%;
+            /* Adjust the percentage value to move it up or down */
+            left: -4%;
+            /* Adjust the percentage value to move it left or right */
+        }
 
 
         @media (max-width: 767px) {
@@ -96,7 +123,7 @@
             .container {
                 margin-right: 50px;
                 position: absolute;
-                top: -40px;
+                top: -110px;
             }
 
 
@@ -112,18 +139,37 @@
             }
 
 
+            .circle1 {
+                top: -6%;
+                /* Adjust the percentage value to move it up or down */
+                left: -2%;
+                /* Adjust the percentage value to move it left or right */
+            }
+
+            .circle2 {
+                top: 2%;
+                /* Adjust the percentage value to move it up or down */
+                left: -15%;
+                /* Adjust the percentage value to move it left or right */
+            }
+
+
+
         }
     </style>
 </head>
 
 <body>
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
     <div class="container">
         <h1> Welcome Onboard</h1>
         <input type="text" placeholder="Enter your Aadhar Number">
         <input type="email" placeholder="Enter your email">
         <input type="password" placeholder="Enter Password">
         <input type="confirmpassword" placeholder="Confirm Password">
-        <a href="login.html"><button id="signUpBtn" class="rounded-button" style="font-style: italic;">Register</button></a>
+        <a href="login.html"><button id="signUpBtn" class="rounded-button"
+                style="font-style: italic;">Register</button></a>
         <p style="font-style: italic;">Already have an account? <a href="login.html">Login</a></p>
     </div>
 
