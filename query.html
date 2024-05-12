@@ -4,7 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Query Form Page</title>
+    <title>Query Form</title>
+
     <style>
         body,
         html {
@@ -12,6 +13,7 @@
             padding: 0;
             height: 100%;
             overflow: hidden;
+            font-style: italic;
         }
 
         .container {
@@ -23,13 +25,11 @@
         .upper-section {
             height: 30%;
             background-color: rgb(65, 183, 204);
-            /* Light grey background */
         }
 
         .lower-section {
             flex-grow: 1;
             background-color: white;
-            /* Lighter grey background */
             display: flex;
         }
 
@@ -64,20 +64,29 @@
             border-radius: 5px;
         }
 
-        input {
-            margin-left: 110%;
-            padding: 10px 20px;
-            border-radius: 20px;
-            font-size: medium;
-            font-style: italic;
-            margin-top: 5px;
-        }
+        input[type="submit"] {
+    margin-left: 110%;
+    padding: 10px 20px;
+    border-radius: 20px;
+    font-size: medium;
+    font-style: italic;
+    margin-top: 5px;
+    cursor: pointer;
+    background-color: aqua;
+    color: white; 
+    border: none;
+    transition: background-color 0.3s ease; 
+}
+
+input[type="submit"]:hover {
+    background-color: white; 
+    color: aqua; 
+}
 
         h1 {
             margin-left: 30px;
         }
 
-        /* Circle styles */
         .circle {
             position: absolute;
             top: 0;
@@ -86,22 +95,17 @@
             height: 130px;
             border-radius: 50%;
             background-color: rgba(0, 255, 255, 0.5);
-            /* Aqua blue with transparency */
         }
 
 
         .circle1 {
             top: -5%;
-            /* Adjust the percentage value to move it up or down */
             left: -2%;
-            /* Adjust the percentage value to move it left or right */
         }
 
         .circle2 {
             top: 7%;
-            /* Adjust the percentage value to move it up or down */
             left: -5%;
-            /* Adjust the percentage value to move it left or right */
         }
 
         @media (max-width: 767px) {
@@ -163,16 +167,12 @@
 
             .circle1 {
                 top: -4%;
-                /* Adjust the percentage value to move it up or down */
                 left: -6%;
-                /* Adjust the percentage value to move it left or right */
             }
 
             .circle2 {
                 top: 3%;
-                /* Adjust the percentage value to move it up or down */
                 left: -12%;
-                /* Adjust the percentage value to move it left or right */
             }
 
         }
@@ -193,10 +193,12 @@
                     <label for="department">Choose Department:</label><br>
                     <select id="department" name="department">
                         <option value="panchayat_board" selected>Panchayat Board</option>
-                        <option value="municipal_corporation">Municipal Corporation</option>
-                        <option value="city_planning_department">City Planning Department</option>
-                        <option value="public_works_department">Public Works Department</option>
-                        <option value="health_department">Health Department</option>
+                        <option value="Panchayat"><i class="fas fa-bell"></i>Panchayat</option>
+                        <option value="Police">Police</option>
+                        <option value="Panchayat">Panchayat</option>
+                        <option value="Water Board">Water Board</option>
+                        <option value="Electricity Board">Electricity Board</option>
+                        <option value="Fire Service">Fire Service</option>
                     </select><br>
                     <label for="query">Query:</label><br>
                     <textarea id="query" name="query" rows="7" required></textarea><br>
