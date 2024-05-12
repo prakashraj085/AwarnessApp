@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Self Care</title>
+    <title>Loading</title>
     <style>
         body,
         html {
@@ -13,6 +13,7 @@
             background-color: white;
             padding: 0;
             overflow-x: hidden;
+            font-style: italic;
         }
 
         .container {
@@ -25,35 +26,25 @@
             margin-right: 500px;
         }
 
-        img {
-            height: 10%;
-            margin-bottom: 40px;
+        .loader {
+            border: 16px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 16px solid #3498db;
+            width: 120px;
+            height: 120px;
+            -webkit-animation: spin 2s linear infinite; /* Safari */
+            animation: spin 2s linear infinite;
         }
 
-
-        .rect-button {
-            background-color: rgb(22, 170, 197);
-            color: black;
-            border: 2px solid rgb(22, 170, 197);
-            border-radius: 3px;
-            padding: 15px;
-            padding-left: 100px;
-            padding-right: 100px;
-            font-size: 16px;
-            margin-top: 20px;
-            margin-right: 10px;
+        /* Safari */
+        @-webkit-keyframes spin {
+            0% { -webkit-transform: rotate(0deg); }
+            100% { -webkit-transform: rotate(360deg); }
         }
 
-        #getStartBtn {
-            margin-right: 0;
-            color: white;
-            font-style: italic;
-        }
-
-        #getStartBtn:hover {
-            cursor: pointer;
-            background-color: white;
-            color: black;
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
         }
 
         .header {
@@ -69,7 +60,10 @@
             margin-bottom: 20px;
         }
 
-        /* Circle styles */
+        .hidden {
+            display: none;
+        }
+
         .circle {
             position: absolute;
             top: 0;
@@ -78,26 +72,17 @@
             height: 130px;
             border-radius: 50%;
             background-color: rgba(0, 255, 255, 0.5);
-            /* Aqua blue with transparency */
         }
-
 
         .circle1 {
             top: -8%;
-            /* Adjust the percentage value to move it up or down */
             left: 0%;
-            /* Adjust the percentage value to move it left or right */
         }
 
         .circle2 {
             top: 3%;
-            /* Adjust the percentage value to move it up or down */
             left: -4%;
-            /* Adjust the percentage value to move it left or right */
         }
-
-
-
 
         @media (max-width: 767px) {
             .container {
@@ -106,35 +91,21 @@
                 top: -190px;
             }
 
-            .rect-button {
-                margin-right: 10px;
-                padding: 10px;
-                padding-left: 50px;
-                padding-right: 50px;
-                margin-bottom: 0px;
-            }
-
-            img {
-                height: 5%;
-                margin-top: 60%;
-
+            .loader {
+                width: 80px;
+                height: 80px;
+                border-width: 8px;
             }
 
             .circle1 {
                 top: -6%;
-                /* Adjust the percentage value to move it up or down */
                 left: -2%;
-                /* Adjust the percentage value to move it left or right */
             }
 
             .circle2 {
                 top: 2%;
-                /* Adjust the percentage value to move it up or down */
                 left: -15%;
-                /* Adjust the percentage value to move it left or right */
             }
-
-
         }
     </style>
 </head>
@@ -143,17 +114,19 @@
     <div class="circle circle1"></div>
     <div class="circle circle2"></div>
     <div class="container">
-        <img src="./images/icons8-loading-50.png" alt="Character Image">
+        <div id="loaderContainer" class="loader"></div>
         <div class="header">Government of India</div>
         <div class="welcome-message">
-            Welcome to the Local Body Awareness
-            and Query System
+            Welcome to the Local Body Awareness and Query System
         </div>
-        <a href="signup.html"><button id="getStartBtn" class="rect-button">Get Started</button></a>
     </div>
 
-
-
+    <script>
+        setTimeout(function() {
+            window.location.href = 'dashboard.html';
+        }, 4000);
+    </script>
 </body>
 
 </html>
+
