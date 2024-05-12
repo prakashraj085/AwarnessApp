@@ -5,6 +5,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Query Form</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/2460ed1eda.js" crossorigin="anonymous"></script>
 
     <style>
         body,
@@ -25,6 +27,38 @@
         .upper-section {
             height: 30%;
             background-color: rgb(65, 183, 204);
+        }
+
+        .menu-icon {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            display: inline-block;
+            cursor: pointer;
+        }
+
+        .bar {
+            width: 30px;
+            height: 3px;
+            background-color: black;
+            margin: 6px 0;
+        }
+
+        .close-icon {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            display: none;
+            cursor: pointer;
+        }
+
+        .close-icon.active {
+            display: block;
+        }
+
+        .close-icon:before {
+            content: '✕';
+            font-size: 20px;
         }
 
         .lower-section {
@@ -86,6 +120,45 @@ input[type="submit"]:hover {
         h1 {
             margin-left: 30px;
         }
+
+        .menu {
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: rgba(255, 255, 255, 0.9);
+            width: 200px;
+            height: 100%;
+            z-index: 1;
+            transform: translateX(200px);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .menu ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .menu ul li {
+            padding: 10px;
+            border-bottom: 1px solid #ccc;
+            cursor: pointer;
+            font-size: 18px;
+            color: #333;
+            transition: background-color 0.3s ease;
+        }
+
+        .menu ul li:hover {
+            background-color: #f0f0f0;
+        }
+
+        .menu ul li:last-child {
+            border-bottom: none;
+        }
+
+        .menu.active {
+            transform: translateX(0);
+        }
+
 
         .circle {
             position: absolute;
@@ -165,6 +238,8 @@ input[type="submit"]:hover {
                 margin-left: 10px;
             }
 
+            
+
             .circle1 {
                 top: -4%;
                 left: -6%;
@@ -185,7 +260,15 @@ input[type="submit"]:hover {
         <div class="upper-section">
             <div class="circle circle1"></div>
             <div class="circle circle2"></div>
+            <div class="menu-icon" onclick="toggleMenu()">
+                <div class="bar"></div>
+                <div class="bar"></div>
+                <div class="bar"></div>
+            </div>
+            <!-- Close icon -->
+            <div class="close-icon" onclick="toggleMenu()"></div>
         </div>
+        
         <div class="lower-section">
             <div class="query-form">
                 <h1>Query Form</h1>
@@ -207,6 +290,37 @@ input[type="submit"]:hover {
             </div>
         </div>
     </div>
+
+      <!-- Menu Content -->
+      <div class="menu">
+        <ul>
+            <a style="text-decoration: none;" href="query.html">
+             <li><i class="fa-solid fa-message"></i>&nbsp;&nbsp;Query</li>
+            </a>
+            <a href="dashboard.html" style="text-decoration: none;">
+                <li><i class="fa-solid fa-house"></i>&nbsp;&nbsp;Home</li>
+            </a>
+            <a href="#" style="text-decoration: none;">
+                <li><i class="fa-solid fa-gear"></i>&nbsp;&nbsp;Settings</li>
+            </a>
+            <a href="#" style="text-decoration: none;">
+                <li><i class="fa-solid fa-bell"></i>&nbsp;&nbsp;Notification</li>
+            </a>
+            <a style="text-decoration: none;" href="login.html">
+                <li><i class="fa-solid fa-right-from-bracket"></i>&nbsp;&nbsp;Logout</li>
+            </a>
+        </ul>
+    </div>
+
+
+    <script>
+        function toggleMenu() {
+            var menu = document.querySelector('.menu');
+            var closeIcon = document.querySelector('.close-icon');
+            menu.classList.toggle('active');
+            closeIcon.classList.toggle('active');
+        }
+    </script>
 
 </body>
 
