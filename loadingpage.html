@@ -12,7 +12,7 @@
             margin: 0;
             background-color: white;
             padding: 0;
- overflow-x: hidden;
+            overflow-x: hidden;
         }
 
         .container {
@@ -69,6 +69,33 @@
             margin-bottom: 20px;
         }
 
+        /* Circle styles */
+        .circle {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            background-color: rgba(0, 255, 255, 0.5);
+            /* Aqua blue with transparency */
+        }
+
+
+        .circle1 {
+            top: -8%;
+            /* Adjust the percentage value to move it up or down */
+            left: 0%;
+            /* Adjust the percentage value to move it left or right */
+        }
+
+        .circle2 {
+            top: 3%;
+            /* Adjust the percentage value to move it up or down */
+            left: -4%;
+            /* Adjust the percentage value to move it left or right */
+        }
+
 
 
 
@@ -93,21 +120,37 @@
 
             }
 
+            .circle1 {
+                top: -6%;
+                /* Adjust the percentage value to move it up or down */
+                left: -2%;
+                /* Adjust the percentage value to move it left or right */
+            }
+
+            .circle2 {
+                top: 2%;
+                /* Adjust the percentage value to move it up or down */
+                left: -15%;
+                /* Adjust the percentage value to move it left or right */
+            }
+
 
         }
     </style>
 </head>
 
 <body>
+    <div class="circle circle1"></div>
+    <div class="circle circle2"></div>
     <div class="container">
         <img src="./images/icons8-loading-50.png" alt="Character Image">
         <div class="header">Government of India</div>
         <div class="welcome-message">
-            Welcome to the Local Body Awareness 
+            Welcome to the Local Body Awareness
             and Query System
         </div>
-        <a href="signup.html"><button id="getStartBtn" class="rect-button" >Get Started</button></a>
-        </div>
+        <a href="signup.html"><button id="getStartBtn" class="rect-button">Get Started</button></a>
+    </div>
 
 
 
