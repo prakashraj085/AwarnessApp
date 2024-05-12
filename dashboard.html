@@ -17,103 +17,38 @@
         height: 100%;
     }
     .upper-section {
-        position: relative;
         height: 30%;
         background-color: rgb(65, 183, 204); /* Light grey background */
+        position: relative; /* Added */
     }
     .menu-icon {
-        position: absolute;
-        top: 10px;
-        right: 10px;
+        position: absolute; /* Added */
+        top: 10px; /* Added */
+        right: 10px; /* Added */
+        display: inline-block;
         cursor: pointer;
-        color: white;
-        font-size: 24px;
     }
-    .menu-icon span {
-        display: block;
-        width: 25px;
+    .bar {
+        width: 30px;
         height: 3px;
-        margin-bottom: 5px;
-        background-color: white;
-        transition: all 0.3s ease;
-    }
-    .menu-icon.open span:first-child {
-        transform: rotate(-45deg) translate(-5px, 6px);
+        background-color: black;
+        margin: 6px 0;
     }
 
-    .menu-icon.open span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .menu-icon.open span:last-child {
-        transform: rotate(45deg) translate(-5px, -6px);
-    }
-
-    .cross-icon {
-        display: none;
-        position: absolute;
-        top: 10px;
-        right: 10px;
+    .close-icon {
+        position: absolute; /* Added */
+        top: 10px; /* Adjust as needed */
+        left: 10px; /* Adjust as needed */
+        display: none; /* Initially hidden */
         cursor: pointer;
-        color: white;
-        font-size: 24px;
-        z-index: 1001; /* Ensure it's above other elements */
     }
-
-    .cross-icon span {
-        display: block;
-        width: 25px;
-        height: 3px;
-        margin-bottom: 5px;
-        background-color: white;
-        transition: all 0.3s ease;
+    .close-icon.active {
+        display: block; /* Show when menu is active */
     }
-
-    .cross-icon.open span:first-child {
-        transform: rotate(45deg) translate(5px, 6px);
+    .close-icon:before {
+        content: '✕';
+        font-size: 20px;
     }
-
-    .cross-icon.open span:nth-child(2) {
-        opacity: 0;
-    }
-
-    .cross-icon.open span:last-child {
-        transform: rotate(-45deg) translate(5px, -6px);
-    }
-    .menu-options {
-        display: none;
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100vw;
-        height: 100vh;
-        background-color: rgba(255, 255, 255, 0.9); /* Semi-transparent white background */
-        z-index: 1000;
-        overflow-y: auto; /* Enable vertical scrolling if needed */
-        padding: 20px;
-        box-sizing: border-box;
-        transform: translateY(-100%);
-        transition: transform 0.3s ease; /* Added transition property */
-    }
-
-    .menu-open .menu-options {
-        display: block;
-        transform: translateY(0);
-    }
-
-    .menu-option {
-        margin-bottom: 15px;
-        padding: 10px;
-        background-color: rgba(255, 255, 255, 0.5); /* Semi-transparent white background for each option */
-        border-radius: 5px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Shadow effect */
-        transition: background-color 0.3s ease;
-    }
-
-    .menu-option:hover {
-        background-color: rgba(255, 255, 255, 0.8); /* Lighter background color on hover */
-    }
-
     .lower-section {
         flex-grow: 1;
         background-color: white; /* Lighter grey background */
@@ -153,75 +88,89 @@
         background-color: white;
     }
 
-    h1 {
-        margin-left: -1000px;
+    h1{
+      margin-left: -1000px;
     }
 
-    p {
+    p{
         margin-left: 90%;
     }
 
+    .menu {
+        position: absolute;
+        top: 0;
+        right: 0;
+        background-color: rgba(255, 255, 255, 0.9);
+        width: 200px;
+        height: 100%;
+        z-index: 1;
+        transform: translateX(200px);
+        transition: transform 0.3s ease-in-out;
+    }
+
+    .menu ul {
+        list-style-type: none;
+        padding: 0;
+    }
+
+    .menu ul li {
+        padding: 10px;
+        border-bottom: 1px solid #ccc;
+        cursor: pointer;
+        font-size: 18px; /* Adjust as needed */
+        color: #333; /* Adjust as needed */
+        transition: background-color 0.3s ease; /* Smooth background color transition */
+    }
+
+    .menu ul li:hover {
+        background-color: #f0f0f0; /* Change background color on hover */
+    }
+
+    .menu ul li:last-child {
+        border-bottom: none;
+    }
+
+    .menu.active {
+        transform: translateX(0);
+    }
+
     @media (max-width: 767px) {
-        p {
-            margin-left: 70%;
-        }
+      p{
+        margin-left: 70%;
+      }
 
-        h1 {
-            margin-left: -100px;
-        }
-        .options-container {
-            width: 85%;
-            margin-left: -10px;
-        }
-
-        /* Additional styles for mobile menu */
-        .cross-icon {
-            display: block;
-        }
-
-        .menu-icon {
-            display: none;
-        }
+      h1{
+        margin-left: -100px;
+      }
+      .options-container {
+        width: 85%;
+        margin-left: -10px;
+      }
     }
-
-    /* Additional styles for mobile menu */
-    .menu-open .menu-options {
-        display: block;
-        transform: translateY(0);
-    }
-
 </style>
 </head>
 <body>
 
 <div class="container">
     <div class="upper-section">
+        <!-- Hamburger menu icon -->
         <div class="menu-icon" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
+            <div class="bar"></div>
+            <div class="bar"></div>
+            <div class="bar"></div>
         </div>
-        <div class="menu-options" onclick="closeMenu(event)">
-            <div class="menu-option">Option 1</div>
-            <div class="menu-option">Option 2</div>
-            <div class="menu-option">Option 3</div>
-            <div class="menu-option">Option 4</div>
-            <div class="menu-option">Option 5</div>
-        </div>
-        <div class="cross-icon" onclick="toggleMenu()">
-            <span></span>
-            <span></span>
-            <span></span>
-        </div>
+         <!-- Close icon -->
+         <div class="close-icon" onclick="toggleMenu()"></div>
     </div>
     <p>Good Morning</p>
     <div class="lower-section">
         <h1>Thudiyalur Area</h1>
+        <!-- Options Container -->
         <div class="options-container">
             <h2>Important Announcements</h2>
             <div class="option">
                 <input type="checkbox" id="option1" name="option1">
-                <label for="option1">Polio Drops at Goverment School</label>
+                <label for="option1">Polio Drops at Government School</label>
             </div>
             <div class="option">
                 <input type="checkbox" id="option2" name="option2">
@@ -233,65 +182,36 @@
             </div>
             <div class="option">
                 <input type="checkbox" id="option4" name="option4">
-                <label for="option4">Electricty Shutdown from tommorow</label>
+                <label for="option4">Electricity Shutdown from tomorrow</label>
             </div>
             <div class="option">
                 <input type="checkbox" id="option5" name="option5">
-                <label for="option5">Roadwork  being done near ITI</label>
+                <label for="option5">Roadwork being done near ITI</label>
             </div>
         </div>
     </div>
 </div>
 
+<!-- Menu Content -->
+<div class="menu">
+    <ul>
+        <li>Option 1</li>
+        <li>Option 2</li>
+        <li>Option 3</li>
+        <li>Option 4</li>
+        <li>Option 5</li>
+    </ul>
+</div>
+
 <script>
-function toggleMenu() {
-    var body = document.body;
-    var menuIcon = document.querySelector('.menu-icon');
-    var menuOptions = document.querySelector('.menu-options');
-    var crossIcon = document.querySelector('.cross-icon');
-    
-    // Toggle open class on body and menu icon
-    body.classList.toggle('menu-open');
-    menuIcon.classList.toggle('open');
-    crossIcon.classList.toggle('open');
-    
-    // Toggle display of menu options
-    if (body.classList.contains('menu-open')) {
-        menuOptions.style.display = 'block';
-    } else {
-        menuOptions.style.display = 'none';
+    function toggleMenu() {
+        var menu = document.querySelector('.menu');
+        var closeIcon = document.querySelector('.close-icon');
+        menu.classList.toggle('active');
+        closeIcon.classList.toggle('active');
     }
-}
-
-// Close the menu when clicking outside the menu options
-window.addEventListener('mousedown', function(event) {
-    var menuOptions = document.querySelector('.menu-options');
-    var menuIcon = document.querySelector('.menu-icon');
-    var crossIcon = document.querySelector('.cross-icon');
-    
-    // Check if the clicked element is not part of the menu options, menu icon, or cross icon
-    if (!menuOptions.contains(event.target) && !menuIcon.contains(event.target) && !crossIcon.contains(event.target)) {
-        document.body.classList.remove('menu-open');
-        menuIcon.classList.remove('open');
-        crossIcon.classList.remove('open');
-        menuOptions.style.display = 'none';
-    }
-});
-
-function closeMenu(event) {
-    var menuIcon = document.querySelector('.menu-icon');
-    var crossIcon = document.querySelector('.cross-icon');
-    
-    // Check if the clicked element is not part of the menu icon or cross icon
-    if (!menuIcon.contains(event.target) && !crossIcon.contains(event.target)) {
-        document.body.classList.remove('menu-open');
-        menuIcon.classList.remove('open');
-        crossIcon.classList.remove('open');
-        document.querySelector('.menu-options').style.display = 'none';
-    }
-}
-
 </script>
+
 
 </body>
 </html>
